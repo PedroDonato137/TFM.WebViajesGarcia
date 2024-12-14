@@ -17,11 +17,22 @@ public class ReservasController {
     @Autowired
     ReservasService reservasService;
 
+    /**
+     *  busca las reservas de un usuario y la devuelve
+     * @param idUsuario usuario que tiene reservas
+     * @return una lista de las reservas
+     */
     @GetMapping(value = "/reservas", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Reserva>> reservasUsuario (@RequestParam ("idUsuario") int idUsuario){
         return new ResponseEntity<>(reservasService.reservasUsuario(idUsuario), HttpStatus.OK);
     }
 
+    /**
+     * Metodo que guardar en la tabla de base de datos los elementos reserva (en el from seria la cesta de viajes)
+     * @param elementosReservas // Listado de Elementos de la reserva
+     * @param idUsuario // Usuario que realia la peticion de reserva
+     * @return Estatus de la accion
+     */
     @PostMapping(value = "/reserva", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> guardarReserva(@RequestBody List<ElementosReserva> elementosReservas, @RequestParam ("idUsuario") int idUsuario){
         Reserva reserva = reservasService.guardarReserva(elementosReservas, idUsuario);

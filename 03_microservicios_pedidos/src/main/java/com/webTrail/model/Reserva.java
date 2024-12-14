@@ -10,14 +10,16 @@ import java.util.List;
 @Table(name = "reservas")
 public class Reserva {
 
+    // Atributos de la clase
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_reservas;
     private int idUsuario;
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy") // Formato fecha
     private Date fecha;
     private String status;
     @OneToMany
+    // FK entre la tabla reservas y elementos reserva
     @JoinColumn(name = "id_reservas", referencedColumnName = "id_reservas")
     private List<ElementosReserva> elementosReserva;
 

@@ -27,11 +27,22 @@ public class ReservasServiceImpl implements ReservasService{
     ElementosReservasRepository elementosReservasRepository;
 
 
+    /**
+     * Busca por id de usuario todas las reservas que tiene
+     * @param idUsuario a buscar
+     * @return listado de reservas del usuario
+     */
     @Override
     public List<Reserva> reservasUsuario(int idUsuario) {
         return reservasRepository.findByIdUsuario(idUsuario);
     }
 
+    /**
+     * Guarda en la tabla reserca, la resera y tambien los distintos elementos
+     * @param elementosReservas Listado de elementos dentro de la reserva
+     * @param idUsuario Usuario que realia la accion
+     * @return la reserva creada
+     */
     @Override
     public Reserva guardarReserva(List<ElementosReserva> elementosReservas, int idUsuario) {
         try {
@@ -47,7 +58,7 @@ public class ReservasServiceImpl implements ReservasService{
                 // Ademas de guardar el elementosReserva, actualiza la capacidad
                 // del viaje correspondiente llamando al recurso
                 // del microservicio 02
-                UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(urlReservas + "viaje")
+                UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(urlReservas + "viaje") // Creacion de la url
                         .queryParam("Id_viajes", e.getViajes().getId_viajes())
                         .queryParam("unidades", e.getUnidades());
 

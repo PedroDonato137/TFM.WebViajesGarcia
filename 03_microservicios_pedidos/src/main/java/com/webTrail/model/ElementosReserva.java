@@ -6,15 +6,18 @@ import jakarta.persistence.*;
 @Table(name = "elementosreservas")
 public class ElementosReserva {
 
+    //Atributos de la clase
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_elementosReserva;
     private int id_reservas;
     @ManyToOne
+    // FK entre la tabla viajes y elementos reserva
     @JoinColumn(name = "id_viajes", referencedColumnName = "id_viajes")
     private Viajes viajes;
     private int unidades;
 
+    //Contructor
     public ElementosReserva(int id_elementosReserva, int id_reservas, Viajes viajes, int unidades) {
         this.id_elementosReserva = id_elementosReserva;
         this.id_reservas = id_reservas;
@@ -22,8 +25,10 @@ public class ElementosReserva {
         this.unidades = unidades;
     }
 
+    // Contructor vacio
     public ElementosReserva() { }
 
+    // Metodos Get y Set
     public int getId_elementosReserva() {
         return id_elementosReserva;
     }
