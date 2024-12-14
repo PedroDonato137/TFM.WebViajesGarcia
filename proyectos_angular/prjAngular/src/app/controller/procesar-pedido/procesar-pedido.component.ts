@@ -15,7 +15,11 @@ import { Continentes } from '../../model/Continentes';
   templateUrl: './procesar-pedido.component.html',
   styleUrl: './procesar-pedido.component.css'
 })
+
+// El metodo procesar pedido esta con la implementacion OnInit para que se ejecute na mas entrar al html
 export class ProcesarPedidoComponent implements OnInit{
+
+  //Variables del metodo
   continentes:Continentes[];
   viajes:Viajes[];
   idContinenteSel:number;
@@ -44,7 +48,7 @@ export class ProcesarPedidoComponent implements OnInit{
         // debemos actualizar su capaciad
         if(p.id_viajes==c.viajes.id_viajes){
           p.capacidad=p.capacidad - c.unidades;
-          p.unidades = c.unidades;
+          p.unidades = c.unidades; // Esta asignacion es para que se la añadan los pasajeros e los viajes
           c.viajes.unidades = c.unidades;
         }
       })
@@ -75,7 +79,11 @@ export class ProcesarPedidoComponent implements OnInit{
 
   procesarReserva(){
     let idn = this.menuComponent.usuario.idUsuario;
-    this.procesarPedidoService.enviarPedido(this.cesta, 1).subscribe({  // AQUI ESTA EL ERROR //this.menuComponent.usuario.idUsuario
+    // Error: dentro de losparentesis de consultarReserva dedveria de tener realmeten la variable idn,
+    // para que almacenara el id del usuario, pero tiene un conflicto con la base de datos, ya que no se llama igual
+    // el campo, he intentado arreglarlo, pero la unica solucion seria modifiacar la tabla usuarios de la base de datos
+    // haciendo que tenga que cambiar tambien todos metodos del spring book repositorios 01 y 02
+    this.procesarPedidoService.enviarPedido(this.cesta, 1).subscribe({
       next:r=>alert("Pedido procesado"),
       error:e=>alert("El pedido no se ha procesado")});
 

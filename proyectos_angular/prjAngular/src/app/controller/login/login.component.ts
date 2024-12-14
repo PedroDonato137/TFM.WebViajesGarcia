@@ -18,7 +18,7 @@ export class LoginComponent {
     private menuComponent:MenuComponent){
 
   }
-
+  // Este metodo loguea al usuario con el correo y la contraseña, si lo encuentra, muestra un mensaje, si no lo encuentra da un error
   login(){
     this.loginService.login(this.correo, this.password).subscribe(data=>{
       this.usuario=data;
