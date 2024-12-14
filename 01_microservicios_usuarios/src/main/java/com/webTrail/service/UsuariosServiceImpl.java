@@ -11,12 +11,25 @@ public class UsuariosServiceImpl implements UsuariosService{
     @Autowired // Inyección de dependencia
     UsuariosRepository usuariosRepository;
 
+    /**
+     * Metodo para buscar al usuario por su correo y su contraseña
+     * si lo encuentra lo devuelve
+     *
+     * @param correo
+     * @param password
+     * @return el usuario encontrado
+     */
     @Override
     public Usuario autenticarUsuario(String correo, String password) {
 
         return usuariosRepository.findByCorreoAndPassword(correo, password);
     }
 
+    /**
+     * Metodo para indicar que el usuario se a registrado o no
+     * @param usuario
+     * @return Devuelve un boolean
+     */
     @Override
     public boolean registrarUsuario(Usuario usuario) {
         if (usuariosRepository.findById(String.valueOf(usuario.getId_usuario())).isPresent()){ // Comprueba que el usuario exista

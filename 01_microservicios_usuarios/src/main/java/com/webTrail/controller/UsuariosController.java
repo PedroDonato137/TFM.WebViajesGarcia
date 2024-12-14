@@ -17,6 +17,12 @@ public class UsuariosController {
     @Autowired
     UsuariosService usuariosService;
 
+    /**
+     * Metodo (GET) para loguear a un usuario mediante correo y password
+     * @param correo
+     * @param password
+     * @return Un status de la apcion
+     */
     @GetMapping (value = "/autenticar", produces = MediaType.APPLICATION_JSON_VALUE ) // El método atenderá peticiones GET // Formato al que será convertido el objeto de respuesta
     public ResponseEntity<Usuario> autenticarUsuario (@RequestParam("correo") String correo, @RequestParam("password") String password){ // Mapeo de parametros usuario a parametros del metodo
 
@@ -28,6 +34,11 @@ public class UsuariosController {
         }
     }
 
+    /**
+     * Metodo (POST) que sirve para registrar un usuario
+     * @param usuario
+     * @return Un status de la accion
+     */
     @PostMapping(value = "/registrar", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> registrarUsuario(@RequestBody Usuario usuario){
         if (usuariosService.registrarUsuario(usuario)){
