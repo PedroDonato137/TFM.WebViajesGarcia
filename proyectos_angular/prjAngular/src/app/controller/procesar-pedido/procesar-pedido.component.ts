@@ -74,6 +74,7 @@ export class ProcesarPedidoComponent implements OnInit{
   }
 
   procesarReserva(){
+    let idn = this.menuComponent.usuario.idUsuario;
     this.procesarPedidoService.enviarPedido(this.cesta, 1).subscribe({  // AQUI ESTA EL ERROR //this.menuComponent.usuario.idUsuario
       next:r=>alert("Pedido procesado"),
       error:e=>alert("El pedido no se ha procesado")});

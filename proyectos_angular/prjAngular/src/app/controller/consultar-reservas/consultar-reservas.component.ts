@@ -19,6 +19,7 @@ export class ConsultarReservasComponent implements OnInit{
       this.usuarioLogin = menuComponent.usuario;
   }
   ngOnInit(): void {
+    let idn = this.menuComponent.usuario.correo;
     this.consultarReservasService.consultarReservas(1).subscribe(r=> this.reservas=r); // AQUI ESTA EL ERROR!!!
   }
 }
