@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.webTrail.controller"},{"l":"com.webTrail.init"},{"l":"com.webTrail.model"},{"l":"com.webTrail.repository"},{"l":"com.webTrail.service"}];updateSearchResults();

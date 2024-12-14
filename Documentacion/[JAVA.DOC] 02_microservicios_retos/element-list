@@ -1,0 +1,5 @@
+com.webTrail.controller
+com.webTrail.init
+com.webTrail.model
+com.webTrail.repository
+com.webTrail.service
