@@ -98,7 +98,7 @@ La aplicación utiliza una base de datos MySQL.
 - **elementosReservas:**
   - `id_elementosReservas ` (PK)
   - `id_reservas` (PK)
- - `id_viajes ` (PK)
+  - `id_viajes ` (PK)
   - `unidades `
 ---
 
