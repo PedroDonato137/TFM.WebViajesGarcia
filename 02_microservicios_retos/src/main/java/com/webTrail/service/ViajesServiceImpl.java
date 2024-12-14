@@ -19,16 +19,31 @@ public class ViajesServiceImpl implements ViajesService {
     ViajesRepository viajesRepository;
 
 
+    /**
+     * Este metodo busca todos los continentes
+     * @return una lista de continentes
+     */
     @Override
     public List<Continentes> continente() {
         return continentesRepository.findAll();
     }
 
+    /**
+     * Este metodo busca por id de continente los viajes que hay
+     * @param idContinente id del continente a buscar
+     * @return una lista de viajes
+     */
     @Override
     public List<Viajes> viajesPorContinente(int idContinente) {
         return viajesRepository.findByIdContinente(idContinente);
     }
 
+    /**
+     * Este metodo sirve para actualizar/validar la capacidad de los viajes
+     * @param id_viaje identificador del viaje que buscamos
+     * @param unidades Unidades de pasajeros que hay que restar
+     * @return los datos del viaje actualizado (pasajeros)
+     */
     @Override
     public Viajes actualizarCapacidad(int id_viaje, int unidades) {
         Viajes viaje = viajePorCodigo(id_viaje);
@@ -40,6 +55,11 @@ public class ViajesServiceImpl implements ViajesService {
         return null;
     }
 
+    /**
+     * Busca los viajes por su identificador
+     * @param id_viajes identificador del viaje que queremos buscar
+     * @return los datos del viaje
+     */
     @Override
     public Viajes viajePorCodigo(int id_viajes) {
         return viajesRepository.findById(id_viajes).orElse(null);

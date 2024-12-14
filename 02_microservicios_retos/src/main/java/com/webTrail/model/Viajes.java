@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 @Table(name="viajes")
 public class Viajes {
 
+    // Atributos de la clase
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_viajes;
@@ -15,6 +16,7 @@ public class Viajes {
     private int idContinente;
     private int capacidad;
 
+    // Constructor
     public Viajes(int id_viajes, String name, Double price, int idContinente, int capacidad) {
         this.id_viajes = id_viajes;
         this.name = name;
@@ -24,6 +26,7 @@ public class Viajes {
 
     }
 
+    // Metodos Get y Set
     public Viajes() { }
 
     public int getId_viajes() {

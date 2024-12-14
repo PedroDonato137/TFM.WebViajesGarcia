@@ -5,6 +5,9 @@ import com.webTrail.model.Viajes;
 
 import java.util.List;
 
+/**
+ * Declaracion de cabezeras de los metodos
+ */
 public interface ViajesService {
     List<Continentes> continente();
     List<Viajes> viajesPorContinente(int idContinente);
