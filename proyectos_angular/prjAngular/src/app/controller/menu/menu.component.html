@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Agencia de viajes Garcia</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a routerLink="/portada">Portada</a></li>
+                <li><a routerLink="/noticias">Noticias</a></li>
+                <li><a routerLink="/barcos">Cruceros</a></li>
+                <li><a routerLink="/rutas">Rutas</a></li>
+                <li ><a *ngIf="enabled" routerLink="/consultar">Consultar Pedidos</a></li>
+                <li ><a *ngIf="enabled" routerLink="/procesar">Procesar Pedido</a></li>
+                <li><a routerLink="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+      <router-outlet></router-outlet>
+   </div>
+  </body>
+</html>

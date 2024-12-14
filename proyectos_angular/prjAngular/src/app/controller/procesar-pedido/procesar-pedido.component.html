@@ -1,0 +1,58 @@
+<div class="container">
+  <br><br>
+    <div class="form-control">
+        <label class="col-sm-2 h4" >Seleccione Continente: </label>
+        <select class="continentes" [(ngModel)]="idContinenteSel" (change)="viajesContinentes()">
+          <option *ngFor="let c of continentes" value="{{c.idContinente}}">{{c.name}}</option>
+        </select>
+    </div>
+    <div>
+      <br><br>
+      <h1>Listado de Viajes</h1>
+      <table class="table">
+        <thead >
+          <tr>
+            <th scope="col">Destino</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Disponibles</th>
+            <th scope="col">Numero pasajeros</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let v of viajes">
+              <td>{{v.name}}</td>
+              <td>{{v.price}} Euros</td>
+              <td>{{v.capacidad}}</td>
+              <td><input type="text" class="form-control" [(ngModel)]="v.unidades" ></td>
+              <td><input type="button" class="form-control" value="Agregar cesta" (click)="agregarViajesCesta(v)" ></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <br><br>
+      <h1>Cesta de Viajes</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Destino</th>
+            <th scope="col">Pasajeros</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of cesta; index as i">
+            <td>{{c.viajes.name}}</td>
+            <td>{{c.unidades}}</td>
+            <td><input type="button" class="form-control" value="Eliminar cesta" (click)="eliminarViajeCesta(i)" ></td>
+        </tr>
+
+        </tbody>
+      </table>
+      <div class="form-group">
+        <br>
+        <input type="button" (click)="procesarReserva()" class="btn btn-info btn-md" value="Procesar pedido"><br>
+      </div>
+    </div>
+</div>
+

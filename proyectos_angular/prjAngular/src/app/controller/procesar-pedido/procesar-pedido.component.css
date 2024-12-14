@@ -1,0 +1,10 @@
+.continentes{
+  width: auto;
+  margin-top: 10px;
+}
+.form-control{
+  display: flex;
+  align-items: start;
+}
+
+

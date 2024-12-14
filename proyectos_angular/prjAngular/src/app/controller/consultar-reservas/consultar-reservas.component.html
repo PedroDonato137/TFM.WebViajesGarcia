@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Pedidos de {{usuarioLogin.name}}</h1>
+  <br><br>
+  <table class="table" *ngFor="let r of reservas" >
+    <thead class="table-info">
+      <tr>
+        <th scope="col">Fecha:{{r.fecha}}   - Estado: {{r.status}}  </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Destino</th>
+                <th scope="col">Pasajeros</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let re of r.elementosReserva">
+                <td>{{re.viajes.name}}</td>
+                <td>{{re.unidades}}</td>
+                <td>{{re.unidades * re.viajes.price}} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
